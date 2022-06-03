@@ -1,0 +1,35 @@
+[package]
+name = "systeroid-tui"
+version = "0.1.1" # managed by release.sh
+description = "A terminal user interface for managing kernel parameters"
+authors = ["Orhun Parmaksız <orhunparmaksiz@gmail.com>"]
+license = "MIT OR Apache-2.0"
+readme = "../README.md"
+homepage = "https://github.com/orhun/systeroid"
+repository = "https://github.com/orhun/systeroid"
+keywords = ["linux", "kernel", "parameter", "sysctl", "tui"]
+categories = ["command-line-utilities"]
+edition = "2021"
+rust-version = "1.56.1"
+
+[features]
+# clipboard support is enabled as default
+default = ["clipboard"]
+clipboard = ["copypasta-ext"]
+
+[dependencies]
+termion = "1.5.6"
+unicode-width = "0.1.9"
+thiserror = "1.0.30"
+getopts = "0.2.21"
+copypasta-ext = { version = "0.3.7", optional = true }
+colorsys = "0.6.5"
+
+[dependencies.systeroid-core]
+version = "0.1.1" # managed by release.sh
+path = "../systeroid-core"
+
+[dependencies.tui]
+version = "0.18.0"
+default-features = false
+features = ["termion"]

@@ -1,0 +1,25 @@
+[package]
+name = "systeroid"
+version = "0.1.1" # managed by release.sh
+description = "A more powerful alternative to sysctl"
+authors = ["Orhun Parmaksız <orhunparmaksiz@gmail.com>"]
+license = "MIT OR Apache-2.0"
+readme = "../README.md"
+homepage = "https://github.com/orhun/systeroid"
+repository = "https://github.com/orhun/systeroid"
+keywords = ["linux", "kernel", "parameter", "sysctl"]
+categories = ["command-line-utilities"]
+edition = "2021"
+default-run="systeroid"
+rust-version = "1.56.1"
+
+[features]
+# tests that affect the system state
+live-tests = []
+
+[dependencies]
+getopts = "0.2.21"
+
+[dependencies.systeroid-core]
+version = "0.1.1" # managed by release.sh
+path = "../systeroid-core"
