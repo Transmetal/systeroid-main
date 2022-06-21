@@ -1,7 +1,3 @@
-<a href="https://github.com/orhun/systeroid">
-    <img align="left" src="assets/systeroid-logo.jpg" width="256">
-</a>
-
 #### **`systeroid`** — A more powerful alternative to sysctl(8).
 
 [`sysctl(8)`](https://man7.org/linux/man-pages/man8/sysctl.8.html) is a utility on Unix-like operating systems that is used to read and modify the attributes of the kernel such as its version number, maximum limits, and security settings[\*](https://en.wikipedia.org/wiki/Sysctl). **systeroid** is "_sysctl on steroids_". It can do everything that sysctl does and even more. It provides a safer, more performant, and user-friendly CLI/TUI for managing the kernel parameters at runtime.
@@ -33,10 +29,6 @@
 <br>
 
 **systeroid** is implemented using [procfs](https://en.wikipedia.org/wiki/Procfs) which is the virtual file system that is typically mapped to a mount point named `/proc` at boot time. This means checking the value of some kernel parameter requires opening a file in this virtual filesystem, reading its contents, parsing them, and closing the file. In [Linux](https://en.wikipedia.org/wiki/Linux), these dynamically configurable kernel options are available under `/proc/sys` which contains directories representing the sections of the kernel and readable/writable virtual files. For example, to enable/disable IP forwarding, `1` or `0` could be written in `/proc/sys/net/ipv4/ip_forward` or `systeroid ip_forward=1` command can be used to change the value of the parameter.
-
-<a href="assets/systeroid-demo.gif">
-    <img src="assets/systeroid-demo.gif" width="800">
-</a>
 
 Although **systeroid** does not need the parameter section to be specified explicitly, it is important to know the sections and their areas of impact. Here are the available kernel sections according to the [Linux kernel documentation](https://www.kernel.org/doc/html/latest/admin-guide/sysctl/index.html):
 
@@ -446,17 +438,14 @@ Simply run `systeroid-tui` to launch the terminal user interface. Alternatively,
 
 Help menu and key bindings can be shown via pressing <kbd>?</kbd>:
 
-![Help](assets/systeroid-tui-help.gif)
 
 #### Scrolling
 
 Use <kbd>up/down</kbd> keys to scroll the parameter list. Alternatively, use <kbd>t/b</kbd> to scroll to the top/bottom.
 
-![Scroll list](assets/systeroid-tui-scroll-list.gif)
 
 Use <kbd>left/right</kbd> to scroll the parameter documentation.
 
-![Scroll documentation](assets/systeroid-tui-scroll-documentation.gif)
 
 #### Toggling the kernel section
 
@@ -464,7 +453,6 @@ Press <kbd>tab</kbd> or <kbd>`</kbd> to toggle the kernel section for filtering 
 
 Order of the sections is `all`-`abi`-`fs`-`kernel`-`net`-`sunrpc`-`user`-`vm`.
 
-![Toggle section](assets/systeroid-tui-toggle-section.gif)
 
 `--section` argument can be used to start **systeroid-tui** with the specified section for filtering.
 
@@ -472,13 +460,11 @@ Order of the sections is `all`-`abi`-`fs`-`kernel`-`net`-`sunrpc`-`user`-`vm`.
 systeroid-tui --section kernel
 ```
 
-![Section option](assets/systeroid-tui-section.gif)
 
 #### Searching
 
 Press <kbd>/</kbd> and type in your query to search for parameters.
 
-![Search](assets/systeroid-tui-search.gif)
 
 Alternatively, you can start **systeroid-tui** with a pre-defined search query by using `--query` argument.
 
@@ -486,13 +472,11 @@ Alternatively, you can start **systeroid-tui** with a pre-defined search query b
 systeroid-tui --query "fs.quota"
 ```
 
-![Query option](assets/systeroid-tui-query.gif)
 
 #### Setting values
 
 Press <kbd>enter</kbd> to select a parameter and set its value via command prompt.
 
-![Set value](assets/systeroid-tui-set-value.gif)
 
 You can press <kbd>r</kbd> to refresh the values in the parameter list.
 
@@ -515,7 +499,6 @@ Press <kbd>:</kbd> to open the command prompt for running a command. Available c
 
 Press <kbd>c</kbd> to show the options menu for copying the name, value, or documentation of the selected parameter.
 
-![Copy to clipboard](assets/systeroid-tui-copy.gif)
 
 \* **systeroid-tui** should be built with `clipboard` feature for enabling the clipboard support.
 
@@ -531,7 +514,6 @@ systeroid-tui --fg-color blue
 systeroid-tui --bg-color ffff99 --fg-color 003366
 ```
 
-![Change colors](assets/systeroid-tui-colors.gif)
 
 #### Viewing the parameter documentation
 
@@ -546,45 +528,3 @@ It is possible to specify a value in milliseconds via `--tick-rate` argument for
 ```sh
 systeroid-tui --tick-rate 500
 ```
-
-## Resources
-
-### References
-
-- [sysctl - source code](https://gitlab.com/procps-ng/procps/-/blob/newlib/sysctl.c)
-- [sysctl - Wikipedia](https://en.wikipedia.org/wiki/Sysctl)
-- [sysctl - ArchWiki](https://wiki.archlinux.org/title/Sysctl)
-
-### Logo
-
-**systeroid** logo was originally painted by [Ryan Tippery](https://www.ryantippery.com/about) as a part of the [Compositions](https://www.ryantippery.com/compositions/) art collection and it is put together by me using the [Filled Spots](https://www.fontspace.com/filled-spots-font-f30755) font. Shout out to Ryan for letting me use his painting for the logo! **<3**
-
-Check out his [store](https://www.ryantippery.com/store) for a fine piece of similar art. Kudos!
-
-### Social Links
-
-- [![Follow @systeroid](https://img.shields.io/twitter/follow/systeroid?style=flat&&logo=twitter&labelColor=000000&color=CECDCB&logoColor=CECDCB)](https://twitter.com/systeroid)
-- [![https://orhun.dev](https://img.shields.io/badge/author-orhun-000000?style=flat&logo=Rust&labelColor=000000&color=CECDCB&logoColor=CECDCB)](https://orhun.dev)
-  - [![Follow @orhun](https://img.shields.io/github/followers/orhun?label=follow%20%40orhun&style=flat&logo=GitHub&labelColor=000000&color=CECDCB&logoColor=CECDCB)](https://github.com/orhun)
-  - [![Follow @orhunp_](https://img.shields.io/twitter/follow/orhunp_?style=flat&logo=twitter&labelColor=000000&color=CECDCB&logoColor=CECDCB)](https://twitter.com/orhunp_)
-
-### Funding
-
-If you find **systeroid** and/or other projects on my [GitHub profile](https://github.com/orhun/) useful, consider [becoming a patron](https://www.patreon.com/join/orhunp)!
-
-[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dorhunp%26type%3Dpatrons&style=flat&logo=Patreon&labelColor=000000&color=CECDCB&logoColor=CECDCB)](https://patreon.com/join/orhunp)
-[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dorhunp%26type%3Dpledges&style=flat&logo=Patreon&labelColor=000000&color=CECDCB&logoColor=CECDCB&label=)](https://patreon.com/join/orhunp)
-
-## Contributing
-
-See our [Contribution Guide](./CONTRIBUTING.md) and please follow the [Code of Conduct](./CODE_OF_CONDUCT.md) in all your interactions with the project.
-
-Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache 2.0 License, shall be dual licensed as above, without any additional terms or conditions.
-
-## License
-
-Licensed under either of [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0) or [The MIT License](http://opensource.org/licenses/MIT) at your option.
-
-## Copyright
-
-Copyright © 2022, [Orhun Parmaksız](mailto:orhunparmaksiz@gmail.com)
