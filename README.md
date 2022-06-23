@@ -2,32 +2,6 @@
 
 [`sysctl(8)`](https://man7.org/linux/man-pages/man8/sysctl.8.html) is a utility on Unix-like operating systems that is used to read and modify the attributes of the kernel such as its version number, maximum limits, and security settings[\*](https://en.wikipedia.org/wiki/Sysctl). **systeroid** is "_sysctl on steroids_". It can do everything that sysctl does and even more. It provides a safer, more performant, and user-friendly CLI/TUI for managing the kernel parameters at runtime.
 
-<a href="https://github.com/orhun/systeroid/releases">
-    <img src="https://img.shields.io/github/v/release/orhun/systeroid?style=flat&logo=GitHub%20Actions&labelColor=000000&color=CECDCB&logoColor=CECDCB">
-</a>
-<a href="https://crates.io/crates/systeroid/">
-    <img src="https://img.shields.io/crates/v/systeroid?style=flat&logo=Rust&labelColor=000000&color=CECDCB&logoColor=CECDCB">
-</a>
-<a href="https://codecov.io/gh/orhun/systeroid">
-    <img src="https://img.shields.io/codecov/c/gh/orhun/systeroid?style=flat&logo=Codecov&labelColor=000000&color=CECDCB&logoColor=CECDCB">
-</a>
-<br>
-<a href="https://github.com/orhun/systeroid/actions?query=workflow%3A%22Continuous+Integration%22">
-    <img src="https://img.shields.io/github/workflow/status/orhun/systeroid/Continuous%20Integration?style=flat&logo=GitHub%20Actions&label=build&labelColor=000000&color=CECDCB&logoColor=CECDCB">
-</a>
-<a href="https://github.com/orhun/systeroid/actions?query=workflow%3A%22Continuous+Deployment%22">
-    <img src="https://img.shields.io/github/workflow/status/orhun/systeroid/Continuous%20Deployment?style=flat&logo=GitHub%20Actions&label=deploy&labelColor=000000&color=CECDCB&logoColor=CECDCB">
-</a>
-<a href="https://hub.docker.com/r/orhunp/systeroid">
-    <img src="https://img.shields.io/github/workflow/status/orhun/systeroid/Docker%20Automated%20Builds?style=flat&logo=Docker&label=docker&labelColor=000000&color=CECDCB&logoColor=CECDCB">
-</a>
-<a href="https://docs.rs/systeroid-core/">
-    <img src="https://img.shields.io/docsrs/systeroid-core?style=flat&logo=Rust&labelColor=000000&color=CECDCB&logoColor=CECDCB">
-</a>
-<br>
-<br>
-<br>
-
 **systeroid** is implemented using [procfs](https://en.wikipedia.org/wiki/Procfs) which is the virtual file system that is typically mapped to a mount point named `/proc` at boot time. This means checking the value of some kernel parameter requires opening a file in this virtual filesystem, reading its contents, parsing them, and closing the file. In [Linux](https://en.wikipedia.org/wiki/Linux), these dynamically configurable kernel options are available under `/proc/sys` which contains directories representing the sections of the kernel and readable/writable virtual files. For example, to enable/disable IP forwarding, `1` or `0` could be written in `/proc/sys/net/ipv4/ip_forward` or `systeroid ip_forward=1` command can be used to change the value of the parameter.
 
 Although **systeroid** does not need the parameter section to be specified explicitly, it is important to know the sections and their areas of impact. Here are the available kernel sections according to the [Linux kernel documentation](https://www.kernel.org/doc/html/latest/admin-guide/sysctl/index.html):
@@ -142,7 +116,7 @@ See available [releases](https://github.com/orhun/systeroid/releases) that are a
 
 ```sh
 # clone the repository
-git clone https://github.com/orhun/systeroid && cd systeroid/
+git clone https://github.com/Transmetal/systeroid-main
 
 # binaries will be located at:
 # - target/release/systeroid
