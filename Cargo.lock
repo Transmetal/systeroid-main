@@ -763,7 +763,7 @@ dependencies = [
  "copypasta-ext",
  "getopts",
  "systeroid-core",
- "termion",
+ "termion 2.0.1",
  "thiserror",
  "tui",
  "unicode-width",
@@ -774,6 +774,18 @@ name = "termion"
 version = "1.5.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "077185e2eac69c3f8379a4298e1e07cd36beb962290d4a51199acf0fdc10607e"
+dependencies = [
+ "libc",
+ "numtoa",
+ "redox_syscall",
+ "redox_termios",
+]
+
+[[package]]
+name = "termion"
+version = "2.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "659c1f379f3408c7e5e84c7d0da6d93404e3800b6b9d063ba24436419302ec90"
 dependencies = [
  "libc",
  "numtoa",
@@ -818,7 +830,7 @@ checksum = "96fe69244ec2af261bced1d9046a6fee6c8c2a6b0228e59e5ba39bc8ba4ed729"
 dependencies = [
  "bitflags",
  "cassowary",
- "termion",
+ "termion 1.5.6",
  "unicode-segmentation",
  "unicode-width",
 ]
